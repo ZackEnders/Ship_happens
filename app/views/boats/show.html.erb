@@ -1,5 +1,8 @@
 <h1>You've selected the boat <%= @boat.boat_name %></h1>
 
-<div><%= @boat.boat_name %></div>
+<div>Boat Name: <%= @boat.boat_name %></div>
+<div><%= image_tag @boat.image.url, :size => "450x300" %></div>
+
 <div>Boat Location: <%= @boat.location %></div>
 <div>Boat Capacity: <%= @boat.capacity %></div>
+
