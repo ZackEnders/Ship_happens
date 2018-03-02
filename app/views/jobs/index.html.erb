@@ -2,8 +2,16 @@
 
 <!-- list out the  -->
 <% @jobs.each do |j| %>
-<div> Name: <%=j.cargo_name %> </div>
+<div> <%=j.cargo_name %> </div>
 <% end %>
 
 
 <h1> Create a New Job </h1>
+<%= simple_form_for @job do |f| %>
+  <%= f.input :cargo_name, label:'Name Your Job:' %>
+  <%= f.input :cargo_description, label: 'Describe Your Cargo:' %>
+  <%= f.input :amount_of_c, label: 'Number of Containers:' %>
+   <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"] %>
+   <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"] %>
+  <%= f.button :submit %>
+<% end %>
