@@ -26,9 +26,23 @@
 
 <div>Welcome</div>
 
+<% if current_client.name == nil  %>
 <%= current_client.email %>
+<% else %>
+<%= current_client.name %>
+<% end %>
+
+<h2> Settings </h2>
+  <%= simple_form_for current_client do |f| %>
+  <%= f.input :name, label:'Company Name:' %>
+  <%= f.input :rate, label: 'Rate Per Package:' %>
+  <%= f.button :submit %>
+<% end %>
+
+
 
 <h2>Current Rate:</h2>
+<%= current_client.rate %>
 
 <h2>Current Boats:</h2>
 

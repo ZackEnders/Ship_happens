@@ -30,16 +30,30 @@ class ClientsController < ApplicationController
 
 
 	def edit
-
+	@client = Client.find(current_client.id)	
+	@client.update(client_params)
 	end
 
 
 	def update
-
+	@client = Client.find(current_client.id)
+	@client.update(client_params)
+	if @client.save
+		redirect_to "/clients/#{@client.id}"
 	end
+end
 
 
 	def destroy
 		
 	end
+
+def client_params
+  
+params.require(:client).permit(:name, :rate)
+end
+
+
+
+
 end
