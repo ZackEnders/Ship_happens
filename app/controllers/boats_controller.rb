@@ -2,6 +2,7 @@ class BoatsController < ApplicationController
 
 	def index 
 		@boats = Boat.all
+		@boat = Boat.new
 	end
 
 
@@ -11,12 +12,14 @@ class BoatsController < ApplicationController
 
 
 	def create
-		@boat = Boat.new(boat_params)
-		# if @boat.save
-		# 	redirect_to 
-		# else
-		# 	render
-		# end
+		boat = current_client.boats.build(boat_params)
+		if boat.save
+			flash[:alert] = "Boat was created successfully!"
+			redirect_to '/boats'
+		else
+			flash[:alert] = "pick a new name"
+			redirect_to boats_path
+		end
 	end
 
 
@@ -42,7 +45,7 @@ class BoatsController < ApplicationController
 	private 
 
 	def boat_params
-		params.require(:boat).permit(:boat_name, :capacity, :location)
+		params.require(:boat).permit(:boat_name, :capacity, :location, :image, :image_file_size, :client_id)
 	end
 
 end
