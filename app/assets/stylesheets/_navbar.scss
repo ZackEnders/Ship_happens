@@ -1,10 +1,12 @@
-body{
-    margin: 0 auto;
+
+
+body {
+    background-color: $main-background;
 }
 
 
 .navbar {
-    background-color: #4CBB17;
+    background-color: $nav-color;
     overflow: hidden;
     position: sticky;
     top: 0;
@@ -25,10 +27,10 @@ body{
  }
 
  .navbar a:hover {
-    background-color: lightgrey;
-    color: black;
+    background-color: $nav-hover;
+    color: white;
  }
 
 .active {
-    background-color: grey;
+    background-color: $nav-active;
 }
