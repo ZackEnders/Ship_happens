@@ -1,7 +1,10 @@
 class BoatsController < ApplicationController
 
+
 	def index 
+
 		@boats = Boat.all
+
 		@boat = Boat.new
 	end
 
@@ -10,7 +13,7 @@ class BoatsController < ApplicationController
 		@boat = Boat.new
 	end
 
-
+#Allows user to create a new boat with the form on the boats index page. 
 	def create
 		boat = current_client.boats.build(boat_params)
 		if boat.save
