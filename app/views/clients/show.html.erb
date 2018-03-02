@@ -27,3 +27,18 @@
 <div>Welcome</div>
 
 <%= current_client.email %>
+
+<h2>Current Rate:</h2>
+
+<h2>Current Boats:</h2>
+
+<% if @boats.present? %>
+   <% @boats.each do |b| %>
+      <div><%= b.boat_name %></div>
+      
+   <% end %>
+<% end %>
+
+<h2>Current Jobs:</h2>
+
+
