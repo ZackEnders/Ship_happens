@@ -1,0 +1,7 @@
+<h1>List of all boats</h1>
+
+<% @boats.each do |b| %>
+	<a href="/boats/<%= b.id %>" ><%= b.boat_name %></a>
+	<%= b.location %>
+	<%= b.capacity %>
+<% end %>
