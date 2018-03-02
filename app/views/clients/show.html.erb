@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+<body class="layout-body">
   <div class="navbar">
 
   <%= link_to "Home", root_path, :class => current_class?(root_path) %>
@@ -61,4 +61,5 @@
       
    <% end %>
 <% end %>
+</body>
 
