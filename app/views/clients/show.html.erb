@@ -55,4 +55,10 @@
 
 <h2>Current Jobs:</h2>
 
+<% if @jobs.present? %>
+   <% @jobs.each do |j| %>
+      <div><%= j.cargo_name %></div>
+      
+   <% end %>
+<% end %>
 
