@@ -34,9 +34,7 @@ class BoatsController < ApplicationController
 
 	end
 
-	private 
-
-	def
+	private
 
 
 end
