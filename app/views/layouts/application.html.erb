@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<div class="layout-body">
   <head>
     <title>ShipHappens</title>
     <%= csrf_meta_tags %>
@@ -11,9 +12,7 @@
   <body class="layout-body">
   <header>
     <div class="navbar">
-
     <%= link_to "Home", root_path, :class => current_class?(root_path) %>
-
      <% if current_client %>
         <%= link_to 'Dashboard', current_client%>
         <%= link_to 'Boats', boats_path,  :class => current_class?(boats_path)  %>
