@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<div class="layout-body">
   <head>
     <title>ShipHappens</title>
     <%= csrf_meta_tags %>
@@ -8,7 +9,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div class="navbar">
 
   <%= link_to "Home", root_path, :class => current_class?(root_path) %>
 
@@ -24,6 +24,7 @@
 
   
 </div>
+
 
   <body>
   	<p class="notice"><%= notice %></p>
