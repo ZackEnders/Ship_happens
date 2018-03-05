@@ -28,6 +28,7 @@ class BoatsController < ApplicationController
 
 	def show
 		@boat = Boat.find(params[:id])
+		@jobs = Job.all
 	end
 
 

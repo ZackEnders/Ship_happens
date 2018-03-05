@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   resources :boats
   resources :jobs
+
+  post '/assign', to: 'jobs#assign'
   
 end
