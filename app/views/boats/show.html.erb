@@ -3,29 +3,40 @@
 <div>Boat Name: <%= @boat.boat_name %></div>
 <div><%= image_tag @boat.image.url, :size => "450x300" %></div>
 
-<div>Boat Location: <%= @boat.location %></div>
-<div>Boat Capacity: <%= @boat.capacity %></div>
-
-
 <% @array = [] %>
+<% @array2 = [] %>
+
 
 <div> Assigned Jobs: 
 	<% @boat.jobs.each do |s| %>
 	<%= s.cargo_name %> 
 	<% @array.push(s.id) %>
+	<%= s.amount_of_c %>
+	<% @array2.push(s.amount_of_c) %>
 	<% end %>
 </div>
 
 
+<div>Boat Location: <%= @boat.location %></div>
+<div>Total Boat Capacity: <%= @boat.capacity %></div>
+<div> Current Boat Capacity:
+	<% @current_capacity = @boat.capacity - @array2.sum %>
+	<%= @current_capacity %>
+ </div>
+
+
+
 <h2> Assign Jobs to a Boat </h2>
+<h4> Note: Only jobs which originate in your boat's port that the boat has space to carry will appear </h4>
 	<% @jobs.each do |j| %>
-		<% if @array.include? j.id%>
-		<% else %>
+		<% unless @array.include? j.id%>
+			<% if j.amount_of_c < @current_capacity && j.origin == @boat.location %>
 		<%= j.cargo_name %>	
 		<%= form_for :job, url: {action: 'assign', controller: 'jobs'} do |s| %>
 			<%= hidden_field_tag 'id', @boat.id %>
 			<%= hidden_field_tag 'jobid', j.id %>
 			<%= s.submit %>
+	<% end %>	
 	<% end %>
 	<% end %>
-	<% end %>
+<% end %>	
