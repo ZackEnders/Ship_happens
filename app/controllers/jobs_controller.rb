@@ -15,13 +15,12 @@ class JobsController < ApplicationController
 
 	def new
  	@job = Job.new
- 	@client = Client.find(current_client.id)
 	end
 
 
 	def create 
-	@job = Job.new(job_params)
-	@client = Client.find(current_client.id)
+	@client = Client.find(current_client.id)	
+	@job = Job.new(params[:job_params])
 	if @job.save
 	redirect_to '/jobs'
 	end
@@ -56,7 +55,7 @@ class JobsController < ApplicationController
 
 def job_params
   
-params.require(:job).permit(:cargo_name, :cargo_description, :cost, :amount_of_c, :origin, :destination)
+params.require(:job).permit(:client_id, :cargo_name, :cargo_description, :cost, :amount_of_c, :origin, :destination)
 end
 
 end

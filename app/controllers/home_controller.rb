@@ -4,8 +4,4 @@ class HomeController < ApplicationController
 		@clients = Client.all
 	end
 
-	
-
-
-	
 end
