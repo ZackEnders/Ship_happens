@@ -47,6 +47,13 @@ class JobsController < ApplicationController
 		
 	end
 
+	def assign
+		@boat = Boat.find(params[:id])
+		@job = Job.find(params[:jobid])
+		@boat.jobs << @job
+		redirect_to '/'
+	end
+
 def job_params
   
 params.require(:job).permit(:cargo_name, :cargo_description, :cost, :amount_of_c, :origin, :destination)
