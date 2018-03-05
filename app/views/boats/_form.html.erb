@@ -1,7 +1,7 @@
 <%= simple_form_for @boat do |f| %>
-  <%= f.input :boat_name, label: 'Name Your Boat:' %>
-  <%= f.input :location, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], label: 'Boat Location' %>
-  <%= f.input :capacity, label: 'Capacity of Boat' %>
-  <%= f.input :image, label: 'Attach Image:' %>
+  <%= f.input :boat_name, label: 'Name Your Boat:',required: true %>
+  <%= f.input :location, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], label: 'Boat Location', required: true  %>
+  <%= f.input :capacity, label: 'Capacity of Boat',required: true  %>
+  <%= f.input :image, label: 'Attach Image:',required: true %>
   <%= f.button :submit %>
 <% end %>

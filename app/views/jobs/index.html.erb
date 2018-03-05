@@ -24,15 +24,15 @@
 
 <h2> Build Your Job </h2>
 <%= simple_form_for @job do |f| %>
-  <%= f.input :cargo_name, label:'Name Your Job:' %>
-  <%= f.input :cargo_description, label: 'Describe Your Cargo:', as: :text %>
-  <%= f.input :amount_of_c, label: 'Number of Containers:' %>
+  <%= f.input :cargo_name, label:'Name Your Job:', required: true %>
+  <%= f.input :cargo_description, label: 'Describe Your Cargo:', as: :text, required: true %>
+  <%= f.input :amount_of_c, label: 'Number of Containers:', required: true %>
  Cost of Job: <div id = 'job_cost'> 
-<%= f.input :cost, label: 'Cost of Job'%>
+<%= f.input :cost, label: 'Cost of Job', required: true%>
   </div>
 
 
-   <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"] %>
-   <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"] %>
+   <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
+   <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
   <%= f.button :submit %>
 <% end %>
