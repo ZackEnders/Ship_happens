@@ -9,16 +9,19 @@ class JobsController < ApplicationController
 	
 	@jobs = Job.all
 	@job = Job.new
+	@client = Client.find(current_client.id)
 	end
 
 
 	def new
  	@job = Job.new
+ 	@client = Client.find(current_client.id)
 	end
 
 
 	def create 
 	@job = Job.new(job_params)
+	@client = Client.find(current_client.id)
 	if @job.save
 	redirect_to '/jobs'
 	end
