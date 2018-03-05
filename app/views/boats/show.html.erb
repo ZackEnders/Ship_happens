@@ -12,41 +12,20 @@
 <div> Assigned Jobs: 
 	<% @boat.jobs.each do |s| %>
 	<%= s.cargo_name %> 
-	<%= @array.push(s.id) %>
+	<% @array.push(s.id) %>
 	<% end %>
 </div>
-<br>
-	<%= @array %>
-<br>
-	
-	
-
 
 
 <h2> Assign Jobs to a Boat </h2>
-		<% @jobs.each do |j| %>
-		<% if @jobs.id == @array[j]%>
-		 <%= j.cargo_name %>
-			<%= form_for :job, url: {action: 'assign', controller: 'jobs'} do |s| %>
+	<% @jobs.each do |j| %>
+		<% if @array.include? j.id%>
+		<% else %>
+		<%= j.cargo_name %>	
+		<%= form_for :job, url: {action: 'assign', controller: 'jobs'} do |s| %>
 			<%= hidden_field_tag 'id', @boat.id %>
 			<%= hidden_field_tag 'jobid', j.id %>
 			<%= s.submit %>
-	
-		<% end %>
-		<% end %>
-		<% end %>
-	
-	
-
-
-
-
-
-
-
-<%# form_for :job, url: {action: 'assign', controller: 'jobs'} do |s| %>
-			<%#= hidden_field_tag 'id', @boat.id %>
-			<%#= hidden_field_tag 'jobid', @whatever_id.id %>
-			<%#= s.submit %>
-	<%# end %>
-	<%# end %>		
+	<% end %>
+	<% end %>
+	<% end %>
