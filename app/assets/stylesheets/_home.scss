@@ -1,3 +1,134 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* zero out all the mrgin & padding  */
+*{
+  margin:0;
+  padding:0;
+}
+
+/* reset takes away margin and paddding from all elements on the page */
+/* zero out the margin so there is no siding around it */
+/* changed the font because nobody likes Times New Roman besides a university paper =) */
+/* Hexidecimal value of FFFFFF equals white */
+body{
+  margin:0;
+  font-family: "Gotham", sans-serif;
+  font-size:1px;
+  color:#FFFFFF;
+  line-height:4;
+}
+/* used vh aka viewpoint height so it changes to the size of each platform  android   os . */
+/* we want to add a bacgkround-size property & set it to cover
+/* /we do ../ b.c we want to get out of the css folder */
+/* I changed the original picture name to showcase.jpeg so it worked with page */
+/* the reset takes away form margin and padding b.c h1 and paragraphs have default margins */
+/* added a text-align center to the items in the showcase as well. Hence, right under align-items. */
+/* justify-content & align-items has the message centered */
+/* padding gives it have some room on the sides so when he room gets really small the text is right up against it */
+/* flex items provide   h1  paragraph  and link   allign horizontally as flex items */
+#showcase{
+  background-image: url('../img/showcase.jpeg');
+  background-size:cover;
+  background-position:center;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+/* you can use width: 100% because we are using overlay */
+.box2 {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  z-index: 100;
+}
+.box {
+  background-color: rgba(0,0,0,.4);
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+/* line height for heading will be a little smaller when you shrink the browser */
+.box h1{
+  font-size:50px;
+  line-height:2;
+}
+.box p{
+  font-size:20px;
+}
+/* link formatted as a button */
+/* magin-top displays the Log In button under the statement */
+.button{
+  font-size:18px;
+  text-decoration:none;
+  color:#FFFFFF;
+  border:#FFFFFF 1px solid;
+  padding:10px 20px;
+  border-radius:10px;
+  margin-top:20px;
+  margin-left: 12px;
+
+}
+/* the button hover effect where the background turns brown */
+/* want to make the text of the color white */
+.button:hover{
+  background:#000000;
+  color:#fff;
+}
+
+/* padding for section a */
+
+// #section-a{
+//   padding:20px;
+//   background:#000000;
+//   color:#fff;
+//   text-align:center;
+//
+// }
+/* padding for section b, it's also the default brown color */
+// #section-b{
+//   padding:20px;
+//   background:#000000;
+//   text-align:center;
+//
+// }
+
+
+/* padding for section       flex makes the divs allign horizontally c */
+// #section-c{
+//   display:flex;
+//
+// }
+
+/* adding padding for each div */
+
+// #section-c div{
+//   padding:20px;
+// }
+
+ /* we want the class of class 1 and section c with box 3 */
+// #section-c .box-1, #section-c .box-3{
+//   background:#000000,
+//   color:#fff;
+// }
+
+// #section-c .box-2{
+//   background:#f9f9f9;
+// }
+
+
+
+/* #section-c .box-3{
+  background:#f9f9f9; */
+
+
+
+/* vh=viewpoint height */
+/* display:flex will take all the pics and words and allign them horizontally */
+/* to have the words go down so we go from flexrow to a flexcolumn
