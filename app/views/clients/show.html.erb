@@ -21,10 +21,8 @@
   <% end %>
 
 </div>
-<h2>Dashboard</h2>
 
-
-<div>Welcome</div>
+<div class="client-profile">Welcome
 
 <% if current_client.name == nil  %>
 <%= current_client.email %>
@@ -32,28 +30,34 @@
 <%= current_client.name %>
 <% end %>
 
-<h2> Settings </h2>
+</div>
+
+<div class="client-profile"> Settings 
   <%= simple_form_for current_client do |f| %>
   <%= f.input :name, label:'Company Name:' %>
-  <%= f.input :rate, label: 'Rate Per Package:' %>
+  <%= f.input :rate, label: 'Rate Per Package:' %><br>
   <%= f.button :submit %>
 <% end %>
+</div>
 
 
-
-<h2>Current Rate:</h2>
+<div class="client-profile">Current Rate:
 <%= current_client.rate %>
 
-<h2>Current Boats:</h2>
+</div>
+
+<div class="client-profile">Current Boats:
 
 <% if @boats.present? %>
-   <% @boats.each do |b| %>
-      <div><%= b.boat_name %></div>
-      
-   <% end %>
+<% @boats.each do |b| %>
+  <div>Boat Name: <a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
+  
+  <% end %>
 <% end %>
 
-<h2>Current Jobs:</h2>
+</div>
+
+<h2 class="client-profile">Current Jobs:</h2>
 
 <% if @jobs.present? %>
    <% @jobs.each do |j| %>
@@ -61,5 +65,7 @@
       
    <% end %>
 <% end %>
+
+
 </body>
 

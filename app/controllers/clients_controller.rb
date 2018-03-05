@@ -26,9 +26,12 @@ class ClientsController < ApplicationController
 	def show
 		render :layout => false
 		@client = Client.find(current_client.id)
-		# @jobs = Job.find(current_client.id)
+		
+		# @jobs = Job.all
+		@boats = Boat.all
 
-		# @boats = current_client.boats
+
+		@boats = current_client.boats
 		# @jobs = current_client.jobs
 
 	end
