@@ -5,16 +5,21 @@
 <h1> Create a New Boat </h1>
 <%= render 'form'%>
 </div>
+
+
 <div class="hidden">
 <h1>List of all boats</h1>
 	<div>
 		<% @boats.each do |b| %>
+		<% if b.client_id == current_client.id %>
 		<div class="float">
 			<div>Boat Name: <a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
 			<div><%= image_tag b.image.url(:med)%></div>
 			<div>Boat Location: <%= b.location %></div>
 			<div>Boat Capacity: <%= b.capacity %></div>
+			<hr><br>
 		</div>
+		<% end %>
 		<% end %>
 	</div>
 	</div>

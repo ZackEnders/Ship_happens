@@ -50,12 +50,12 @@
 </div>
 
 <div class="client-profile">
-<h2>Current Locations:</h2>
+<h2>Current Boat Locations:</h2>
 
-<% if @boats.present? %>
 <% @boats.each do |b| %>
-  <div>Boat Name: <a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
-  <div>Location: <%= b.location %><</div>
+<% if b.client_id == current_client.id %>
+  <div><a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
+  <div>Location: <%= b.location %></div>
   
   <% end %>
 <% end %>

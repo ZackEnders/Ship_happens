@@ -1,14 +1,12 @@
 class ClientsController < ApplicationController
 
 	before_action :authenticate_client!
-	def assign
-
-	end
-
+	
 
 	def index
 	
 	@clients = Client.all
+	@boats = Boat.all
 
 	end
 
@@ -24,12 +22,10 @@ class ClientsController < ApplicationController
 
 
 	def show
-		render :layout => false
-		@client = Client.find(current_client.id)
-		# @boat = Boat.find(params[:id])
 		
-		@boats = current_client.boats
-		# @jobs = current_client.jobs
+		@client = Client.find(current_client.id)
+		@boats = Boat.all 
+		render :layout => false
 
 	end
 
