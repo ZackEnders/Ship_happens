@@ -10,16 +10,14 @@
 <% end %>
 
 <h3> Cost Calculator </h3>
- 	<form class="costCalc">
-   <div>Client Rate: <input type="text" name="Client Rate" value = '<%= @client.rate%>'></div>
 
-  <div>Number of Containers: <input type="text" name="Number of Containers" ></div>
-
-  <div><button id = 'cost_button'> Calculate Cost </button></div>
+  <form class="costCalc">
+   <div>Client Rate: <input type="text" name="Client Rate" id = 'rate' value = '<%= @client.rate%>'></input></div>
+   <div>Number of Containers: <input type="text" name="Number of Containers" id= 'containers' value = ""> </input></div>
  	</form>
-</div>
+    <div><button id = 'cost_button'> Calculate Cost </button></div>
+      Cost: <div id = cost> </div>
 
-<div class="job-page">
 <h2> Build Your Job </h2>
 
 
