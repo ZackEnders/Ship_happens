@@ -10,16 +10,19 @@
 <% end %>
 
 <h3> Cost Calculator </h3>
-
+ 
   <form class="costCalc">
    <div>Client Rate: <input type="text" name="Client Rate" id = 'rate' value = '<%= @client.rate%>'></input></div>
    <div>Number of Containers: <input type="text" name="Number of Containers" id= 'containers' value = ""> </input></div>
  	</form>
     <div><button id = 'cost_button'> Calculate Cost </button></div>
-      Cost: <div id = cost> </div>
+    <div class="cost">Cost: <div id = 'cost'> </div></div>
+</div>
 
-<h2> Build Your Job </h2>
 
+
+<div class="job-page">
+  <h2> Build Your Job </h2>
 
 <%= simple_form_for @job do |f| %>
 
