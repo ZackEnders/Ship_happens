@@ -1,3 +1,4 @@
+<div class="main_boat_box">
 <h1>You've selected the boat <%= @boat.boat_name %></h1>
 
 <div><%= link_to('Destroy', boat_path, method: :delete)%></div>
@@ -25,7 +26,6 @@
 	<%= @current_capacity %>
  </div>
 
-
 <h2> Assign Jobs to a Boat </h2>
 <h4> Note: Only jobs which originate in your boat's port that the boat has space to carry will appear </h4>
 	<% @jobs.each do |j| %>
@@ -40,3 +40,4 @@
 	<% end %>
 	<% end %>
 <% end %>	
+</div>
