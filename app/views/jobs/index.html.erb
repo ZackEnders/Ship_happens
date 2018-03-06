@@ -3,9 +3,9 @@
 <!-- list out the  -->
 
 <% @jobs.each do |j| %>
-<div> <%=j.cargo_name %> </div>
-<% end %>
+<div> <a href="/jobs/<%= j.id %>/edit"><%=j.cargo_name %></a> </div>
 
+<% end %>
 
 
 
@@ -23,6 +23,8 @@
 
 
 <h2> Build Your Job </h2>
+
+
 <%= simple_form_for @job do |f| %>
 
   <%= f.input :cargo_name, label:'Name Your Job:', required: true %>
@@ -32,6 +34,5 @@
     <%= f.input :cost, label: 'Cost of Job', required: true%> </div>
    <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
    <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
-   <input type="text" name="Client Id" value = '<%= @client.id%>' >
   <%= f.button :submit %>
 <% end %>
