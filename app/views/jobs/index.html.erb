@@ -4,33 +4,38 @@
 <!-- list out the  -->
 
 <% @jobs.each do |j| %>
-
-<div> <a href="/jobs/<%= j.id %>/edit"><%=j.cargo_name %></a> </div>
-
+<% if j.client_id == current_client.id %>
+<div class="jobs"> <a href="/jobs/<%= j.id %>/edit"><%=j.cargo_name %></a> </div>
+<% end %>
 <% end %>
 
+<<<<<<< HEAD
 <!-- form for calculating cost of job. powered by js. not required to create a job (user can manually enter cost and number of containers in job creation form) but a nifty feature -->
+=======
+>>>>>>> b1ead4c25d29dc5dab6f433c677a5d2fd65240b8
 <h3> Cost Calculator </h3>
- 	<form>
-   Client Rate: <input type="text" name="Client Rate" id = 'rate' value = '<%= @client.rate%>'></input>
-  <br>
-   Number of Containers: <input type="text" name="Number of Containers" id= 'containers' value = ""> </input>
- </form>
-  <button> <div id = 'cost_button'> Calculate Cost </div> </button>
- 	<br>
-Cost: <div id = cost> </div>
 
+<<<<<<< HEAD
 <!-- form to create a job -->
+=======
+  <form class="costCalc">
+   <div>Client Rate: <input type="text" name="Client Rate" id = 'rate' value = '<%= @client.rate%>'></input></div>
+   <div>Number of Containers: <input type="text" name="Number of Containers" id= 'containers' value = ""> </input></div>
+ 	</form>
+    <div><button id = 'cost_button'> Calculate Cost </button></div>
+      Cost: <div id = cost> </div>
+
+>>>>>>> b1ead4c25d29dc5dab6f433c677a5d2fd65240b8
 <h2> Build Your Job </h2>
 
 <div class="job-page">
 
 <%= simple_form_for @job do |f| %>
 
-  <%= f.input :cargo_name, label:'Name Your Job:', required: true %>
-  <%= f.input :cargo_description, label: 'Describe Your Cargo:', as: :text, required: true %>
-  <%= f.input :amount_of_c, label: 'Number of Containers:', required: true %>
-   <%= f.input :cost, label: 'Cost of Job', required: true %> 
+  <%= f.input :cargo_name, label:'Name Your Job', required: true, label_html: { class: 'cargobox'} %>
+  <%= f.input :cargo_description, label: 'Describe Your Cargo', as: :text, required: true, label_html: { class: 'cargobox'}%>
+  <%= f.input :amount_of_c, label: 'Number of Containers', required: true, label_html: { class: 'cargobox'}%>
+  <%= f.input :cost, label: 'Cost of Job', required: true, label_html: { class: 'cargobox'} %>
   <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
   <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
 
