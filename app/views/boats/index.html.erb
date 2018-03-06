@@ -1,8 +1,10 @@
-
-<h1> Create a New Boat </h1>
+<div class="boat-page">
+<h2> Create a New Boat </h2>
 <%= render 'form'%>
-<hr>
-<h1>List of all boats</h1>
+</div>
+
+<div class="boat-page">
+<h2>List of all boats</h2>
 <% @boats.each do |b| %>
 	<div>Boat Name: <a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
 	<br/>
@@ -14,5 +16,5 @@
 	<br/>
 	<hr>
 <% end %>
-
+</div>
 

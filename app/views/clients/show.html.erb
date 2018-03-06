@@ -22,17 +22,21 @@
 
 </div>
 
-<div class="client-profile">Welcome
+<div class="client-profile">
+  <h2>Welcome
 
 <% if current_client.name == nil  %>
 <%= current_client.email %>
 <% else %>
 <%= current_client.name %>
-<% end %>
+<% end %></h2>
+
+<%= link_to 'Edit Client', edit_client_registration_path %>
 
 </div>
 
-<div class="client-profile"> Settings 
+<div class="client-profile"> 
+  <h2>Settings</h2> 
   <%= simple_form_for current_client do |f| %>
   <%= f.input :name, label:'Company Name:' %>
   <%= f.input :rate, label: 'Rate Per Package:' %><br>
@@ -41,30 +45,24 @@
 </div>
 
 
-<div class="client-profile">Current Rate:
-<%= current_client.rate %>
-
+<div class="client-profile">
+<h2>Current Rate:
+<%= current_client.rate %></h2>
 </div>
 
-<div class="client-profile">Current Boats:
+<div class="client-profile">
+<h2>Current Locations:</h2>
 
 <% if @boats.present? %>
 <% @boats.each do |b| %>
   <div>Boat Name: <a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
+  <div>Location: <%= b.location %><</div>
   
   <% end %>
 <% end %>
 
 </div>
 
-<h2 class="client-profile">Current Jobs:</h2>
-
-<% if @jobs.present? %>
-   <% @jobs.each do |j| %>
-      <div><%= j.cargo_name %></div>
-      
-   <% end %>
-<% end %>
 
 
 </body>

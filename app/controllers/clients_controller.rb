@@ -28,7 +28,7 @@ class ClientsController < ApplicationController
 		@client = Client.find(current_client.id)
 		
 		# @jobs = Job.all
-		@boats = Boat.all
+		# @boats = Boat.all
 
 
 		@boats = current_client.boats
