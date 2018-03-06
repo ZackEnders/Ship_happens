@@ -32,7 +32,7 @@
 
 </div>
 
-<div class="client-profile"> Settings 
+<div class="client-profile"> Settings
   <%= simple_form_for current_client do |f| %>
   <%= f.input :name, label:'Company Name:' %>
   <%= f.input :rate, label: 'Rate Per Package:' %><br>
@@ -51,21 +51,20 @@
 <% if @boats.present? %>
 <% @boats.each do |b| %>
   <div>Boat Name: <a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
-  
+
   <% end %>
 <% end %>
 
 </div>
 
-<h2 class="client-profile">Current Jobs:</h2>
+<h2 class="client-profile">Current Job:</h2>
 
 <% if @jobs.present? %>
    <% @jobs.each do |j| %>
       <div><%= j.cargo_name %></div>
-      
+
    <% end %>
 <% end %>
 
 
 </body>
-
