@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
 	def index
 	
 	@clients = Client.all
-
+	@boats = Boat.all
 	end
 
 
@@ -24,14 +24,13 @@ class ClientsController < ApplicationController
 
 
 	def show
-		render :layout => false
-		@client = Client.find(current_client.id)
-		
-		# @jobs = Job.all
 		@boats = Boat.all
-
-
-		@boats = current_client.boats
+		@client = Client.find(current_client.id)
+		render :layout => false
+		
+		# @boat = Boat.find(params[:id])
+		
+		
 		# @jobs = current_client.jobs
 
 	end

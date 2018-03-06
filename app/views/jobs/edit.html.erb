@@ -1,0 +1,27 @@
+<div class="job-page">
+<h2><%= @job.cargo_name %></h2>
+</div>
+
+<div class="job-page">
+
+<%= simple_form_for @job do |f| %>
+
+  <%= f.input :cargo_name, label:'Name Your Job:', required: true %>
+  <%= f.input :cargo_description, label: 'Describe Your Cargo:', as: :text, required: true %>
+  <%= f.input :amount_of_c, label: 'Number of Containers:', required: true %>
+    <%= f.input :cost, label: 'Cost of Job', required: true%>
+   <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
+   <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
+  	<%= f.button :submit %>
+<% end %>
+
+
+<br>
+<%= link_to 'Delete Job', job_path, method: :delete %> 
+
+
+</div>
+
+
+
+

@@ -1,5 +1,8 @@
+
+<div class="main_boat_box">
 <h1>You've selected the boat <%= @boat.boat_name %></h1>
 
+<div><%= link_to('Destroy', boat_path, method: :delete)%></div>
 <div>Boat Name: <%= @boat.boat_name %></div>
 <div><%= image_tag @boat.image.url, :size => "450x300" %></div>
 
@@ -24,8 +27,10 @@
 	<% @current_capacity = @boat.capacity - @array2.sum %>
 	<%= @current_capacity %>
  </div>
+</div>
 
 
+<div class="boat-page">
 
 <h2> Assign Jobs to a Boat </h2>
 <h4> Note: Only jobs which originate in your boat's port that the boat has space to carry will appear </h4>
@@ -39,5 +44,6 @@
 			<%= s.submit %>
 	<% end %>
 	<% end %>
-	<% end %>
-<% end %>
+  <% end %>
+<% end %>	
+</div>
