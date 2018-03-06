@@ -26,8 +26,6 @@ class ClientsController < ApplicationController
 		@boats = Boat.all
 		@client = Client.find(current_client.id)
 		render :layout => false
-		
-
 
 	end
 
@@ -52,8 +50,7 @@ end
 	end
 
 def client_params
-  
-params.require(:client).permit(:name, :rate)
+	params.require(:client).permit(:name, :rate)
 end
 
 

@@ -42,9 +42,12 @@ else
 
 	def update
 	@job = Job.find(params[:id])
+	
 	if @job.update(job_params)
+		flash[:alert] = "It worked!"
 		redirect_to '/jobs'
 	else 
+		flash[:alert] = "It didn't work!"
 		redirect_to "/jobs/#{@job.id}/edit"
 	end
 end
