@@ -4,12 +4,10 @@
 <!-- list out the  -->
 
 <% @jobs.each do |j| %>
-<div> <%=j.cargo_name %> </div>
-<% end %>
-</div>
 
-<div class="job-page">
-<h2> New Job </h2>
+<div> <a href="/jobs/<%= j.id %>/edit"><%=j.cargo_name %></a> </div>
+
+<% end %>
 
 <h3> Cost Calculator </h3>
  	<form>
@@ -23,17 +21,17 @@
 
 <div class="job-page">
 <h2> Build Your Job </h2>
+
+
 <%= simple_form_for @job do |f| %>
 
   <%= f.input :cargo_name, label:'Name Your Job:', required: true %>
   <%= f.input :cargo_description, label: 'Describe Your Cargo:', as: :text, required: true %>
   <%= f.input :amount_of_c, label: 'Number of Containers:', required: true %>
- Cost of Job: <div id = 'job_cost'> 
-    <%= f.input :cost, label: 'Cost of Job', required: true%> </div>
-   <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
-   <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
-   <input type="text" name="Client Id" value = '<%= @client.id%>' >
-   <br>
+  <%= f.input :cost, label: 'Cost of Job', required: true %>
+  <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
+  <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
+
   <%= f.button :submit %>
 <% end %>
 </div>

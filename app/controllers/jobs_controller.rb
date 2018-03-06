@@ -18,31 +18,40 @@ class JobsController < ApplicationController
 	end
 
 
-	def create 
-	@client = Client.find(current_client.id)	
-	@job = Job.new(params[:job_params])
-	if @job.save
+	def create 	
+	job = current_client.jobs.build(job_params)
+	if job.save
+	flash[:alert] = "Job was created successfully!"	
 	redirect_to '/jobs'
+else 
+	redirect_to '/jobs'
+	flash[:alert] = "Job was not created. Try again!"
 	end
 	end
 
 
 	def show
-	@job = Job.find(params[:id])
 	end
 
 
 	def edit
-
+	@job = Job.find(params[:id])
 	end
 
 
 	def update
-
+	@job = Job.find(params[:id])
+	if @job.update(job_params)
+		redirect_to '/jobs'
+	else 
+		redirect_to "/jobs/#{@job.id}/edit"
 	end
-
+end
 
 	def destroy
+	@job = Job.find(params[:id])
+	@job.delete
+	redirect_to '/jobs'
 		
 	end
 
@@ -50,7 +59,7 @@ class JobsController < ApplicationController
 		@boat = Boat.find(params[:id])
 		@job = Job.find(params[:jobid])
 		@boat.jobs << @job
-		redirect_to '/'
+		redirect_to "/boats/#{@boat.id}"
 	end
 
 def job_params

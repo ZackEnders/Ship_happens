@@ -11,15 +11,16 @@
   <body class="layout-body">
   <header>
     <div class="navbar">
-    <%= link_to "Home", root_path, :class => current_class?(root_path) %>
-     <% if current_client %>
-        <%= link_to 'Dashboard', current_client%>
-        <%= link_to 'Boats', boats_path,  :class => current_class?(boats_path)  %>
-        <%= link_to 'Jobs', jobs_path,  :class => current_class?(jobs_path)  %>
-        <%= link_to "Logout", destroy_client_session_path, method: :delete %>
-     <% else %>
+      
+     <%if !signed_in? %>
+       <%= link_to "Home", root_path, :class => current_class?(root_path) %>
         <%= link_to 'Login', client_session_path,  :class => current_class?(client_session_path)  %>
         <%= link_to 'Signup', new_client_registration_path,  :class => current_class?(new_client_registration_path)  %>
+     <% else %>
+        <%= link_to 'Dashboard', current_client%>
+        <%= link_to 'Boats', boats_path,  :class => current_class?(boats_path)%>
+        <%= link_to 'Jobs', jobs_path,  :class => current_class?(jobs_path)%>
+         <%= link_to "Logout", destroy_client_session_path, method: :delete %>
      <% end %>
    </div>
 </header>
