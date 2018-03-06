@@ -42,7 +42,7 @@ else
 	def update
 	@job = Job.find(params[:id])
 	if @job.update(job_params)
-	redirect_to '/jobs'
+		redirect_to '/jobs'
 	else 
 		redirect_to "/jobs/#{@job.id}/edit"
 	end
@@ -59,7 +59,7 @@ end
 		@boat = Boat.find(params[:id])
 		@job = Job.find(params[:jobid])
 		@boat.jobs << @job
-		redirect_to '/'
+		redirect_to "/boats/#{@boat.id}"
 	end
 
 def job_params
