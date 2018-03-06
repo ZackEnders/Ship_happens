@@ -9,7 +9,7 @@
 
 <% end %>
 
-<div class="job-page">
+<!-- form for calculating cost of job. powered by js. not required to create a job (user can manually enter cost and number of containers in job creation form) but a nifty feature -->
 <h3> Cost Calculator </h3>
  	<form>
    Client Rate: <input type="text" name="Client Rate" id = 'rate' value = '<%= @client.rate%>'></input>
@@ -20,9 +20,10 @@
  	<br>
 Cost: <div id = cost> </div>
 
-
+<!-- form to create a job -->
 <h2> Build Your Job </h2>
 
+<div class="job-page">
 
 <%= simple_form_for @job do |f| %>
 
