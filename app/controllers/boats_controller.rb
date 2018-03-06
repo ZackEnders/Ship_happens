@@ -44,6 +44,16 @@ class BoatsController < ApplicationController
 
 	def destroy
 
+		boat = Boat.find(params[:id])
+    	#if blog destroy is successful then it alerts the user that it was deleted
+    		if boat.destroy
+      			flash[:alert] = "You have destroyed your ship!"
+      			redirect_to boats_path
+    		else
+      			flash[:alert] = "Your ship sails on "
+      			render boats_path
+			end
+
 	end
 
 	private 
