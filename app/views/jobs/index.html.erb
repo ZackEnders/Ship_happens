@@ -5,17 +5,17 @@
 
 <% @jobs.each do |j| %>
 <% if j.client_id == current_client.id %>
-<div> <a href="/jobs/<%= j.id %>/edit"><%=j.cargo_name %></a> </div>
+<div class="jobs"> <a href="/jobs/<%= j.id %>/edit"><%=j.cargo_name %></a> </div>
 <% end %>
 <% end %>
 
 <h3> Cost Calculator </h3>
- 	<form>
-   Client Rate: <input type="text" name="Client Rate" value = '<%= @client.rate%>'>
-  <br>
-   Number of Containers: <input type="text" name="Number of Containers" >
-  <br>
-  <button id = 'cost_button'> Calculate Cost </button>
+ 	<form class="costCalc">
+   <div>Client Rate: <input type="text" name="Client Rate" value = '<%= @client.rate%>'></div>
+
+  <div>Number of Containers: <input type="text" name="Number of Containers" ></div>
+
+  <div><button id = 'cost_button'> Calculate Cost </button></div>
  	</form>
 </div>
 
@@ -25,10 +25,10 @@
 
 <%= simple_form_for @job do |f| %>
 
-  <%= f.input :cargo_name, label:'Name Your Job:', required: true %>
-  <%= f.input :cargo_description, label: 'Describe Your Cargo:', as: :text, required: true %>
-  <%= f.input :amount_of_c, label: 'Number of Containers:', required: true %>
-  <%= f.input :cost, label: 'Cost of Job', required: true %>
+  <%= f.input :cargo_name, label:'Name Your Job', required: true, label_html: { class: 'cargobox'} %>
+  <%= f.input :cargo_description, label: 'Describe Your Cargo', as: :text, required: true, label_html: { class: 'cargobox'}%>
+  <%= f.input :amount_of_c, label: 'Number of Containers', required: true, label_html: { class: 'cargobox'}%>
+  <%= f.input :cost, label: 'Cost of Job', required: true, label_html: { class: 'cargobox'} %>
   <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
   <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
 
