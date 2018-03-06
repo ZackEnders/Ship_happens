@@ -6,7 +6,7 @@ class JobsController < ApplicationController
 
 
 	def index
-	
+
 	@jobs = Job.all
 	@job = Job.new
 	@client = Client.find(current_client.id)
@@ -16,6 +16,7 @@ class JobsController < ApplicationController
 	def new
  	@job = Job.new
 	end
+
 
 
 	def create 	
@@ -49,6 +50,7 @@ else
 end
 
 	def destroy
+
 	@job = Job.find(params[:id])
 	@job.delete
 	redirect_to '/jobs'
@@ -63,7 +65,7 @@ end
 	end
 
 def job_params
-  
+
 params.require(:job).permit(:client_id, :cargo_name, :cargo_description, :cost, :amount_of_c, :origin, :destination)
 end
 

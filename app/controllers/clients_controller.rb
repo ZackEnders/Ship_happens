@@ -22,10 +22,12 @@ class ClientsController < ApplicationController
 
 
 	def show
-		
+
+		@boats = Boat.all
 		@client = Client.find(current_client.id)
-		@boats = Boat.all 
 		render :layout => false
+		
+
 
 	end
 

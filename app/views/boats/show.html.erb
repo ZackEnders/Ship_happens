@@ -10,14 +10,15 @@
 <% @array2 = [] %>
 
 
-<div> Assigned Jobs: 
+<div> Assigned Jobs:
 	<% @boat.jobs.each do |s| %>
-	<%= s.cargo_name %> 
+	<%= s.cargo_name %>
 	<% @array.push(s.id) %>
 	<%= s.amount_of_c %>
 	<% @array2.push(s.amount_of_c) %>
 	<% end %>
 </div>
+
 
 
 <div>Boat Location: <%= @boat.location %></div>
@@ -36,13 +37,13 @@
 	<% @jobs.each do |j| %>
 		<% unless @array.include? j.id%>
 			<% if j.amount_of_c < @current_capacity && j.origin == @boat.location %>
-		<%= j.cargo_name %>	
+		<%= j.cargo_name %>
 		<%= form_for :job, url: {action: 'assign', controller: 'jobs'} do |s| %>
 			<%= hidden_field_tag 'id', @boat.id %>
 			<%= hidden_field_tag 'jobid', j.id %>
 			<%= s.submit %>
-	<% end %>	
 	<% end %>
 	<% end %>
+  <% end %>
 <% end %>	
 </div>
