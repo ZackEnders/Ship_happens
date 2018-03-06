@@ -1,17 +1,15 @@
-<h1> Manage Your Jobs </h1>
+<div class="job-page">
+<h2> Manage Your Jobs </h2>
 
 <!-- list out the  -->
 
 <% @jobs.each do |j| %>
+
 <div> <a href="/jobs/<%= j.id %>/edit"><%=j.cargo_name %></a> </div>
 
 <% end %>
 
-
-
-<h1> New Job </h1>
-
-<h2> Cost Calculator </h2>
+<h3> Cost Calculator </h3>
  	<form>
    Client Rate: <input type="text" name="Client Rate" value = '<%= @client.rate%>'>
   <br>
@@ -19,9 +17,9 @@
   <br>
   <button id = 'cost_button'> Calculate Cost </button>
  	</form>
-<br>
+</div>
 
-
+<div class="job-page">
 <h2> Build Your Job </h2>
 
 
@@ -33,5 +31,7 @@
   <%= f.input :cost, label: 'Cost of Job', required: true %>
   <%= f.input :origin, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
   <%= f.input :destination, collection: ["Hong Kong", "London", "Los Angeles", "New York City", "Rotterdam", "Shanghai", "Shenzen"], required: true %>
+
   <%= f.button :submit %>
 <% end %>
+</div>
