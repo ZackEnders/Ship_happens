@@ -10,8 +10,6 @@
 <% @array = [] %> <!-- this array contains the job ids -->
 <% @array2 = [] %><!-- this array contains the number of containers per job -->
 
-
-<<<<<<< HEAD
 <div> Assigned Jobs: 
 	<% @boat.jobs.each do |s| %> <!-- loops through jobs assigned to the boat -->
 	<%= s.cargo_name %> <!-- dipslays name of each job -->
@@ -25,7 +23,6 @@
 	<% @array.push(s.id) %>
 	<%= s.amount_of_c %>
 	<% @array2.push(s.amount_of_c) %>
->>>>>>> b1ead4c25d29dc5dab6f433c677a5d2fd65240b8
 	<% end %>
 </div>
 
@@ -44,19 +41,16 @@
 <div class="boat-page">
 <h2> Assign Jobs to a Boat </h2>
 <h4> Note: Only jobs which originate in your boat's port that the boat has space to carry will appear </h4>
-<<<<<<< HEAD
 	<% @jobs.each do |j| %> <!-- loop through all jobs -->
 		<% unless @array.include? j.id%> 
 			<!-- displays only jobs that have not been assigned to the boat (array stores the job ids that have been assigned, hence if a job is included in that array it should not be displayed here) -->
 			<% if j.amount_of_c < @current_capacity && j.origin == @boat.location %> 
 		<!-- also only displays jobs where the number of containers is less than current capacity of boat and where it's origin is the same as the boat location -->
 		<%= j.cargo_name %>	
-=======
 	<% @jobs.each do |j| %>
 		<% unless @array.include? j.id%>
 			<% if j.amount_of_c < @current_capacity && j.origin == @boat.location %>
 		<%= j.cargo_name %>
->>>>>>> b1ead4c25d29dc5dab6f433c677a5d2fd65240b8
 		<%= form_for :job, url: {action: 'assign', controller: 'jobs'} do |s| %>
 			<%= hidden_field_tag 'id', @boat.id %>
 			<%= hidden_field_tag 'jobid', j.id %>
