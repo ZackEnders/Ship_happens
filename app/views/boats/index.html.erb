@@ -1,19 +1,21 @@
 <div class="main_boat_box">
 	<div class="index-boat">
+		<div class="sticky">
 <h1> Create a New Boat </h1>
 <%= render 'form'%>
-<hr>
+</div>
+<div class="hidden">
 <h1>List of all boats</h1>
-<% @boats.each do |b| %>
-	<div>Boat Name: <a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
-	<br/>
-	<div><%= image_tag b.image.url(:med)%></div>
-	<br/>
-	<div>Boat Location: <%= b.location %></div>
-	<br/>
-	<div>Boat Capacity: <%= b.capacity %></div>
-	<br/>
-	<hr>
-<% end %>
+	<div>
+		<% @boats.each do |b| %>
+		<div class="float">
+			<div>Boat Name: <a href="/boats/<%= b.id %>" ><%= b.boat_name %></a></div>
+			<div><%= image_tag b.image.url(:med)%></div>
+			<div>Boat Location: <%= b.location %></div>
+			<div>Boat Capacity: <%= b.capacity %></div>
+		</div>
+		<% end %>
+	</div>
+	</div>
 </div>
 </div>
