@@ -4,9 +4,9 @@
 <!-- list out the  -->
 
 <% @jobs.each do |j| %>
-
+<% if j.client_id == current_client.id %>
 <div> <a href="/jobs/<%= j.id %>/edit"><%=j.cargo_name %></a> </div>
-
+<% end %>
 <% end %>
 
 <h3> Cost Calculator </h3>
