@@ -18,6 +18,7 @@
  	}
  	h3 {
  		margin-top: 5px;
+ 		padding: 0;
  	}
  	.cargobox {
  		display: block;
@@ -28,6 +29,12 @@
  	}
 }
 
+#cost {
+	display: inline-block;
+}
+.cost {
+	margin: 5px;
+}
 .costCalc div{
 	margin: 10px;
 	padding: 5px;
