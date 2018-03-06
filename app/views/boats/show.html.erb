@@ -1,5 +1,6 @@
 <h1>You've selected the boat <%= @boat.boat_name %></h1>
 
+<div><%= link_to('Destroy', boat_path, method: :delete)%></div>
 <div>Boat Name: <%= @boat.boat_name %></div>
 <div><%= image_tag @boat.image.url, :size => "450x300" %></div>
 

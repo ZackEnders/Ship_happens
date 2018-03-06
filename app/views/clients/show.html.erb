@@ -8,8 +8,6 @@
 <body class="layout-body">
   <div class="navbar">
 
-  
-
   <% if current_client %>
     <%= link_to 'Dashboard', current_client, :class => current_class?(client_path)%>
     <%= link_to 'Boats', boats_path,  :class => current_class?(boats_path)  %>
