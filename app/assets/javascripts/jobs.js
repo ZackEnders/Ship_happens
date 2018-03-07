@@ -2,6 +2,10 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
+//this script powers a calculator to determine the cost of the job.
+// the user's rate is determined by their settings. user enters the number of containers.
+//	cost of job is determined by multiplying rate * containers
+// the cost of job and the number of containers are then popped into the below job creation form
 
 window.onload = function(){
 
