@@ -1,25 +1,29 @@
-# README
+# Ship_happens README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Ship Happens!
 
-Things you may want to cover:
+This is an example of a shipping site build to major commerce companies. Specific jobs can be created and assigned to boats based on their origin and destination.
+
+Boats may also be created with the option specify capacity and atttach a photo of it.
+
+Extras include a built-in calculator to estimate shipping costs based on a client's set shipping rate.
+
+
 
 * Ruby version
 
-* System dependencies
+- ruby 2.4.1p111 (2017-03-22 revision 58053)
 
-* Configuration
+* Gems used
 
-* Database creation
+- Devise & Paperclip
 
 * Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+- Run "rails db:migrate" and "bundle install" to set database and gems.
 
 * Deployment instructions
 
-* ...
-# Ship_happens
+- Run "rails s" and go to localhost:3000 in your browser to create your profile and begin.
+
+Please see contributors for any additional information on the project.
